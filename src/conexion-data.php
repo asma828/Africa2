@@ -1,15 +1,24 @@
-
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+class Database {
+    private $host = "localhost";  
+    private $username = "root";   
+    private $password = "";       
+    private $dbname = "nom_de_la_base";
+    public $conn;
 
-try {
-  $connect = new PDO("mysql:host=$servername;dbname=africa géo-junior", $username, $password);
- 
-  $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  // echo "Connected successfully";
-} catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+    public function __construct() {
+        try {
+            
+            $this->conn = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo "Connection échouée: " . $e->getMessage();
+        }
+    }
+
+   
+    public function query($sql) {
+        return $this->conn->query($sql);
+    }
 }
 ?>
