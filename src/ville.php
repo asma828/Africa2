@@ -68,11 +68,12 @@ include './conexion-data.php';
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $sql = "SELECT * FROM `ville`";
-                $result = mysqli_query($connect, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
-                ?>
+            <?php
+                       $database = new Database();
+                       $sql = "SELECT * FROM ville";
+                       $result = $database->query($sql);
+                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
                     <tr class="hover:bg-gray-100">
                         <td class="px-4 py-2 border-b"><?php echo $row["id_ville"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["nom"] ?></td>
