@@ -66,16 +66,13 @@ include './conexion-data.php';
                     
                 </tr>
             </thead>
-<<<<<<< Updated upstream
+
             <tbody> <?php
                        $database = new Database();
                        $sql = "SELECT * FROM continent";
-=======
-            <tbody>
-                    <?php
-                       $database = new Database();
-                       $sql = "SELECT * FROM pays";
->>>>>>> Stashed changes
+
+            
+
                        $result = $database->query($sql);
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
