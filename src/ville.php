@@ -71,11 +71,10 @@ include './conexion-data.php';
             <tbody>
             <?php
                        $database = new Database();
-<<<<<<< Updated upstream
                        $sql = "SELECT * FROM ville";
-=======
+
                        $sql = "SELECT * FROM pays";
->>>>>>> Stashed changes
+
                        $result = $database->query($sql);
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
