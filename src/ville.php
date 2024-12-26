@@ -63,6 +63,7 @@ include './conexion-data.php';
                    
                     <th class="px-4 py-2 border-b">Name</th>
                     <th class="px-4 py-2 border-b">Type</th>
+                    <th class="px-4 py-2 border-b">description</th>
                     <th class="px-4 py-2 border-b">Name pays</th>
                     
                 </tr>
@@ -70,7 +71,11 @@ include './conexion-data.php';
             <tbody>
             <?php
                        $database = new Database();
+<<<<<<< Updated upstream
                        $sql = "SELECT * FROM ville";
+=======
+                       $sql = "SELECT * FROM pays";
+>>>>>>> Stashed changes
                        $result = $database->query($sql);
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
@@ -78,6 +83,7 @@ include './conexion-data.php';
                         <td class="px-4 py-2 border-b"><?php echo $row["id_ville"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["nom"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["type"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["description"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["name_pays"] ?></td>
                         
                     </tr>

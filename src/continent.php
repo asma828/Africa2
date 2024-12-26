@@ -59,26 +59,30 @@ include './conexion-data.php';
             <thead class="bg-amber-900 text-white">
                 <tr>
                     
-                    <th class="px-4 py-2 border-b">Name</th>
-                    <th class="px-4 py-2 border-b">Population</th>
-                    <th class="px-4 py-2 border-b">Langues</th>
-                    <th class="px-4 py-2 border-b">Nom Continent</th>
+                    <th class="px-4 py-2 border-b">Nom</th>
+                    
+                    <th class="px-4 py-2 border-b">Nombre de pays</th>
                     
                     
                 </tr>
             </thead>
+<<<<<<< Updated upstream
             <tbody> <?php
                        $database = new Database();
                        $sql = "SELECT * FROM continent";
+=======
+            <tbody>
+                    <?php
+                       $database = new Database();
+                       $sql = "SELECT * FROM pays";
+>>>>>>> Stashed changes
                        $result = $database->query($sql);
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                     <tr class="hover:bg-gray-100">
                         <td class="px-4 py-2 border-b"><?php echo $row["id_pays"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["nom"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["population"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["langues"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["nom_continent"] ?></td>
+                        
                         
                         
                     </tr>

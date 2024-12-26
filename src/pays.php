@@ -68,7 +68,12 @@ include './conexion-data.php';
                 </tr>
             </thead>
             <tbody>
+<<<<<<< Updated upstream
             <?php
+=======
+                   
+                     <?php
+>>>>>>> Stashed changes
                        $database = new Database();
                        $sql = "SELECT * FROM pays";
                        $result = $database->query($sql);
