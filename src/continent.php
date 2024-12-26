@@ -77,8 +77,8 @@ include './conexion-data.php';
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                     <tr class="hover:bg-gray-100">
-                        <td class="px-4 py-2 border-b"><?php echo $row["id_pays"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["nom"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["nombre_pays"] ?></td>
                         
                         
                         
