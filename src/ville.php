@@ -73,17 +73,16 @@ include './conexion-data.php';
                        $database = new Database();
                        $sql = "SELECT * FROM ville";
 
-                       $sql = "SELECT * FROM pays";
+                    
 
                        $result = $database->query($sql);
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                     <tr class="hover:bg-gray-100">
-                        <td class="px-4 py-2 border-b"><?php echo $row["id_ville"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["nom"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["nom_ville"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["type"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["description"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["name_pays"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["id_pays"] ?></td>
                         
                     </tr>
                 <?php
