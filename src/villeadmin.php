@@ -34,23 +34,33 @@ include './conexion-data.php';
       </button>
     </div>
 
+    
     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20 bg-amber-900 " id="nav-content">
-      <ul class="list-reset lg:flex justify-end flex-1 items-center">
-        <li class="mr-3">
-          <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="index.php">Home</a>
-        </li>
-        <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="ajout.php">Ajout</a>
-        </li>
-        <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="read.php">Pays</a>
-        </li>
-        <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="readvil.php">Villes</a>
-        </li>
+                    <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="ajoutadmin.php">ajout</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="continentadmin.php">continent</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="paysadmin.php">pays</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="villeadmin.php">ville</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="login.php">log-out</a>
+                        </li>
+                       
+                        <li class="mr-3 w-12" >
+                            <a class="" href="login.php"> <img src="../img/logout.png"></a>
+                           
+                        </li>
 
-      </ul>
-    </div>
+                    </ul>
+                </div>
+  </div>
   </div>
 
   <div class="container mx-auto px-4 py-6 border-amber-900">

@@ -4,57 +4,6 @@
 
 include './conexion-data.php';
 
-if (isset($_POST["submit"])) {
-    
-    if (!empty($_POST['nom']) && !empty($_POST['population']) && !empty($_POST['langues']) && !empty($_POST['id_continent'])) {
-        $nom = $_POST['nom'];
-        $population = $_POST['population'];
-        $langues = $_POST['langues'];
-        $id_continent = $_POST['id_continent'];
-
-      
-        $sql = "INSERT INTO `Pays` (`langues`, `population`, `nom`, `id_continent`) 
-                VALUES ('$langues', '$population', '$nom', '$id_continent')";
-
-       
-        $result = mysqli_query($connect, $sql);
-
-        if ($result) {
-            header("Location: ajout.php?msg=ajouter");
-            exit();
-        } else {
-            echo "Échec : " . mysqli_error($connect);
-        }
-    } else {
-        echo "Veuillez remplir tous les champs obligatoires.";
-    }
-}
-
-
-
-if (isset($_POST["sub"])) {
-
-    if (!empty($_POST['nom']) && !empty($_POST['type']) && !empty($_POST['id_pays'])) {
-        $nom = $_POST['nom'];
-        $type = $_POST['type'];
-        $id_pays = $_POST['id_pays'];
-
-        $sql = "INSERT INTO `ville` (`nom`, `type`, `id_pays`) 
-                VALUES ('$nom', '$type', '$id_pays')";
-
-        $resulta = mysqli_query($connect, $sql);
-
-        if ($resulta) {
-            header("Location: ajout.php?msg=ajouter");
-            exit();
-        } else {
-            echo "Échec : " . mysqli_error($connect);
-        }
-    } else {
-        echo "Veuillez remplir tous les champs obligatoires.";
-    }
-}
-
 
 ?>
 
