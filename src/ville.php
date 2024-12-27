@@ -89,7 +89,7 @@ include './conexion-data.php';
                         <td class="px-4 py-2 border-b"><?php echo $row["nom_ville"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["type"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["description"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["id_pays"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["nom_pays"] ?></td>
                         
                     </tr>
                 <?php
