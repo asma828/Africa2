@@ -1,8 +1,14 @@
 <?php
+
+require '../classes/paysclass.php';
 include './conexion-data.php';
 
-
+$database = new Database();
+$pays = new Pays($database);
+$data = $pays->read(); 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,22 +41,31 @@ include './conexion-data.php';
     </div>
 
     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20 bg-amber-900 " id="nav-content">
-      <ul class="list-reset lg:flex justify-end flex-1 items-center">
-        <li class="mr-3">
-          <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="index.php">Home</a>
-        </li>
-        <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="continent.php">Continent</a>
-        </li>
-        <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="pays.php">Pays</a>
-        </li>
-        <li class="mr-3">
-          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="ville.php">Villes</a>
-        </li>
+                    <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="ajoutadmin.php">ajout</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="continentadmin.php">continent</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="paysadmin.php">pays</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="villeadmin.php">ville</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="login.php">log-out</a>
+                        </li>
+                       
+                        <li class="mr-3 w-12" >
+                            <a class="" href="login.php"> <img src="../img/logout.png"></a>
+                           
+                        </li>
 
-      </ul>
-    </div>
+                    </ul>
+                </div>
+  </div>
   </div>
 
   <div class="container mx-auto px-4 py-6 border-amber-900">
@@ -58,33 +73,33 @@ include './conexion-data.php';
         <table class="min-w-full table-auto text-center border-collapse">
             <thead class="bg-amber-900 text-white">
                 <tr>
-                    
+                   
                     <th class="px-4 py-2 border-b">Name</th>
                     <th class="px-4 py-2 border-b">Population</th>
                     <th class="px-4 py-2 border-b">Langues</th>
                     <th class="px-4 py-2 border-b">Nom Continent</th>
                     
-                    
                 </tr>
             </thead>
             <tbody>
+            <?php
+                if ($data) {
+                    foreach ($data as $row) {
+                ?>
+                <tr class="hover:bg-gray-100">
+                    <td class="px-4 py-2 border-b"><?php echo htmlspecialchars($row["nom_pays"], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td class="px-4 py-2 border-b"><?php echo htmlspecialchars($row["population"], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td class="px-4 py-2 border-b"><?php echo htmlspecialchars($row["langues"], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td class="px-4 py-2 border-b"><?php echo htmlspecialchars($row["nom"], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td class="flex justify-center px-4 py-2 border-b">
+           
+</td>
 
-                    <?php
-
-                       $database = new Database();
-                       $sql = "SELECT * FROM pays";
-                       $result = $database->query($sql);
-                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                    ?>
-                    <tr class="hover:bg-gray-100">
-                        <td class="px-4 py-2 border-b"><?php echo $row["nom_pays"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["population"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["langues"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["id_continent"] ?></td>
-                        
-                        
-                    </tr>
+                </tr>
                 <?php
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>Aucun pays trouvé</td></tr>";
                 }
                 ?>
             </tbody>
