@@ -106,11 +106,11 @@ if(!isset($_SESSION['user_id'])) {
                 <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20 bg-amber-900 " id="nav-content">
                     <ul class="list-reset lg:flex justify-end flex-1 items-center">
                         <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="login.php">log-out</a>
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="logout.php">log-out</a>
                         </li>
                        
                         <li class="mr-3 w-12" >
-                            <a class="" href="login.php"> <img src="../img/logout.png"></a>
+                            <a class="" href="logout.php"> <img src="../img/logout.png"></a>
                            
                         </li>
 
