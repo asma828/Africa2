@@ -1,11 +1,62 @@
 
-<?php
+<?php 
 
 
 include './conexion-data.php';
 
+if (isset($_POST["submit"])) {
+    
+    if (!empty($_POST['nom']) && !empty($_POST['population']) && !empty($_POST['langues']) && !empty($_POST['id_continent'])) {
+        $nom = $_POST['nom'];
+        $population = $_POST['population'];
+        $langues = $_POST['langues'];
+        $id_continent = $_POST['id_continent'];
 
-?>
+      
+        $sql = "INSERT INTO `Pays` (`langues`, `population`, `nom`, `id_continent`) 
+                VALUES ('$langues', '$population', '$nom', '$id_continent')";
+
+       
+        $result = mysqli_query($connect, $sql);
+
+        if ($result) {
+            header("Location: ajout.php?msg=ajouter");
+            exit();
+        } else {
+            echo "Échec : " . mysqli_error($connect);
+        }
+    } else {
+        echo "Veuillez remplir tous les champs obligatoires.";
+    }
+}
+
+
+
+if (isset($_POST["sub"])) {
+
+    if (!empty($_POST['nom']) && !empty($_POST['type']) && !empty($_POST['id_pays'])) {
+        $nom = $_POST['nom'];
+        $type = $_POST['type'];
+        $id_pays = $_POST['id_pays'];
+
+        $sql = "INSERT INTO `ville` (`nom`, `type`, `id_pays`) 
+                VALUES ('$nom', '$type', '$id_pays')";
+
+        $resulta = mysqli_query($connect, $sql);
+
+        if ($resulta) {
+            header("Location: ajout.php?msg=ajouter");
+            exit();
+        } else {
+            echo "Échec : " . mysqli_error($connect);
+        }
+    } else {
+        echo "Veuillez remplir tous les champs obligatoires.";
+    }
+}
+
+
+?> 
 
 
 
@@ -55,11 +106,11 @@ include './conexion-data.php';
                             <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="villeadmin.php">ville</a>
                         </li>
                         <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="login.php">log-out</a>
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="logout.php">log-out</a>
                         </li>
                        
                         <li class="mr-3 w-12" >
-                            <a class="" href="login.php"> <img src="../img/logout.png"></a>
+                            <a class="" href="logout.php"> <img src="../img/logout.png"></a>
                            
                         </li>
 
