@@ -1,6 +1,10 @@
 <?php
+require '../classes/ville.php';
 include './conexion-data.php';
 
+$database = new Database();
+$ville = new ville($database);
+$data = $ville->read(); 
 
 ?>
 
@@ -77,22 +81,20 @@ include './conexion-data.php';
             </thead>
             <tbody>
             <?php
-                       $database = new Database();
-                       $sql = "SELECT * FROM ville";
-
-                    
-
-                       $result = $database->query($sql);
-                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                       if ($data) {
+                        foreach ($data as $row) {
                     ?>
                     <tr class="hover:bg-gray-100">
-                        <td class="px-4 py-2 border-b"><?php echo $row["nom_ville"] ?></td>
+                    <td class="px-4 py-2 border-b"><?php echo $row["nom_ville"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["type"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["description"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["nom_pays"] ?></td>
-                        
+                       
                     </tr>
-                <?php
+                    <?php
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>Aucun ville trouvé</td></tr>";
                 }
                 ?>
             </tbody>
