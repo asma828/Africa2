@@ -35,51 +35,43 @@ include './conexion-data.php';
     </div>
 
     <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20 bg-amber-900 " id="nav-content">
-                    <ul class="list-reset lg:flex justify-end flex-1 items-center">
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="ajoutadmin.php">ajout</a>
-                        </li>
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="continentadmin.php">continent</a>
-                        </li>
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="paysadmin.php">pays</a>
-                        </li>
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="villeadmin.php">ville</a>
-                        </li>
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="login.php">log-out</a>
-                        </li>
-                       
-                        <li class="mr-3 w-12" >
-                            <a class="" href="login.php"> <img src="../img/logout.png"></a>
-                           
-                        </li>
+      <ul class="list-reset lg:flex justify-end flex-1 items-center">
+        <li class="mr-3">
+          <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="index.php">Home</a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="ajout.php">Ajout</a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="read.php">Pays</a>
+        </li>
+        <li class="mr-3">
+          <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="readvil.php">Villes</a>
+        </li>
 
-                    </ul>
-                </div>
+      </ul>
+    </div>
   </div>
 
   <div class="container mx-auto px-4 py-6 border-amber-900">
-   <div class="overflow-x-auto">
+   
+
+    <div class="overflow-x-auto">
         <table class="min-w-full table-auto text-center border-collapse">
             <thead class="bg-amber-900 text-white">
                 <tr>
                     
-                    <th class="px-4 py-2 border-b">Nom</th>
-                    
-                    
+                    <th class="px-4 py-2 border-b">Name</th>
+                    <th class="px-4 py-2 border-b">Type</th>
+                    <th class="px-4 py-2 border-b">description</th>
+                    <th class="px-4 py-2 border-b">Name pays</th>
                     <th class="px-4 py-2 border-b">Action</th>
-                    
-                    
                 </tr>
             </thead>
-
-            <tbody> 
-                    <?php
+            <tbody>
+            <?php
                        $database = new Database();
-                       $sql = "SELECT * FROM continent";
+                       $sql = "SELECT * FROM ville";
 
             
 
@@ -87,14 +79,16 @@ include './conexion-data.php';
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                     <tr class="hover:bg-gray-100">
-                        <td class="px-4 py-2 border-b"><?php echo $row["nom"] ?></td>
-                        
-                        <td class="flex justify-center px-4 py-2 border-b ">
-                            <a href="edit.php?id_continent=<?php echo $row["id_continent"] ?>" class="text-blue-500 hover:text-blue-700">
-                              <img class="w-4 h-7" src="../img/edit.png"></img>
+                        <td class="px-4 py-2 border-b"><?php echo $row["nom_ville"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["type"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["description"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["id_pays"] ?></td>
+                        <td class="flex justify-center px-4 py-2 border-b "> 
+                            <a href="editvill.php?id_ville=<?php echo $row["id_ville"] ?>" class="text-blue-500 hover:text-blue-700">
+                                <img class="w-4 h-7" src="../img/edit.png"></img>   
                             </a>
-                            <a href="delete.php?id_continent=<?php echo $row["id_continent"] ?>" class="text-red-500 hover:text-red-700">
-                              <img class="w-4 h-7" src="../img/delete.png"></img>
+                            <a href="deletevill.php?id_ville=<?php echo $row["id_ville"] ?>" class="text-red-500 hover:text-red-700">
+                                <img class="w-4 h-7" src="../img/delete.png"></img>
                             </a>
                         </td>
                     </tr>

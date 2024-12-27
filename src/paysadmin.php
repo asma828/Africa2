@@ -60,26 +60,26 @@ include './conexion-data.php';
                     </ul>
                 </div>
   </div>
+  </div>
 
   <div class="container mx-auto px-4 py-6 border-amber-900">
    <div class="overflow-x-auto">
         <table class="min-w-full table-auto text-center border-collapse">
             <thead class="bg-amber-900 text-white">
                 <tr>
-                    
-                    <th class="px-4 py-2 border-b">Nom</th>
-                    
-                    
+                   
+                    <th class="px-4 py-2 border-b">Name</th>
+                    <th class="px-4 py-2 border-b">Population</th>
+                    <th class="px-4 py-2 border-b">Langues</th>
+                    <th class="px-4 py-2 border-b">Nom Continent</th>
                     <th class="px-4 py-2 border-b">Action</th>
-                    
                     
                 </tr>
             </thead>
-
-            <tbody> 
+            <tbody>
                     <?php
                        $database = new Database();
-                       $sql = "SELECT * FROM continent";
+                       $sql = "SELECT * FROM pays";
 
             
 
@@ -87,13 +87,17 @@ include './conexion-data.php';
                         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                     <tr class="hover:bg-gray-100">
-                        <td class="px-4 py-2 border-b"><?php echo $row["nom"] ?></td>
+                        
+                        <td class="px-4 py-2 border-b"><?php echo $row["nom_pays"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["population"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["langues"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["id_continent"] ?></td>
                         
                         <td class="flex justify-center px-4 py-2 border-b ">
-                            <a href="edit.php?id_continent=<?php echo $row["id_continent"] ?>" class="text-blue-500 hover:text-blue-700">
+                            <a href="edit.php?id_pays=<?php echo $row["id_pays"] ?>" class="text-blue-500 hover:text-blue-700">
                               <img class="w-4 h-7" src="../img/edit.png"></img>
                             </a>
-                            <a href="delete.php?id_continent=<?php echo $row["id_continent"] ?>" class="text-red-500 hover:text-red-700">
+                            <a href="delete.php?id_pays=<?php echo $row["id_pays"] ?>" class="text-red-500 hover:text-red-700">
                               <img class="w-4 h-7" src="../img/delete.png"></img>
                             </a>
                         </td>
