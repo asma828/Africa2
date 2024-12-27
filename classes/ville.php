@@ -45,5 +45,13 @@ class Ville {
         $query = "DELETE FROM ville WHERE id_ville = $this->id_ville";
         return $this->connect->query($query); 
     }
+        // Fetch a single country's data by ID
+public function readById() {
+    $query = "SELECT * FROM ville WHERE id_ville = :id_ville";
+    $stmt = $this->connect->prepare($query);
+    $stmt->bindParam(':id_ville', $this->id_ville);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 }
 ?>
