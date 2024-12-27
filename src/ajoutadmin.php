@@ -1,6 +1,7 @@
 
 <?php 
 
+
 include './conexion-data.php';
 
 
@@ -84,8 +85,8 @@ include './conexion-data.php';
                     <button type="submit" name="sub" id="sub" class="text-white font-bold bg-amber-900 w-36 rounded-2xl py-2 hover:bg-amber-900 cursor-pointer">Ajouter</button>
                 </div>
             </form>
-        
-            <form action="" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] sm:m-5 m-3" style="background-image: url('../img/bg.jpg');">
+        <!--pays Ajout-->
+            <form action="insertpays.php" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] sm:m-5 m-3" style="background-image: url('../img/bg.jpg');">
                 <h1 class="flex justify-center font-bold text-white text-4xl"> Pays</h1>
             
                 <label class="text-white" for="nom">Nom :</label>
@@ -98,9 +99,15 @@ include './conexion-data.php';
                 <input type="text" id="langues" name="langues" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
             
                 <label class="text-white" for="id_continent">Continent :</label>
-                <select id="id_continent" name="id_continent" class="w-full p-2 mb-4 rounded-md bg-gray-200">
-                    <option value="1">Afrique</option>
-                </select>
+                <select id="id_continent" name="id_continent" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
+                      <option value="">Sélectionner un continent</option>
+        <?php 
+        
+        foreach ($continents as $continent) {
+            echo "<option value='" . $continent['id_continent'] . "'>" . $continent['nom'] . "</option>";
+        }
+        ?>
+    </select><br><br>
             
                 <div class="flex justify-end mt-6">
                     <button type="submit" name="submit" class="text-white font-bold bg-amber-900 w-36 rounded-2xl py-2 hover:bg-amber-800 cursor-pointer">
@@ -108,6 +115,7 @@ include './conexion-data.php';
                     </button>
                 </div>
             </form>
+<!--Ville Ajout-->
 
             <form action="" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] flex flex-col justify-center sm:m-5 m-3" style="background-image: url('../img/bg.jpg');">
                 <h1 class="flex justify-center font-bold text-white text-4xl">Villes</h1>
