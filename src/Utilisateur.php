@@ -18,7 +18,6 @@ class Utilisateur {
             return "Le mot de passe doit contenir au moins 8 caractères";
         }
 
-        
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
         try {
