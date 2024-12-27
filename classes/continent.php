@@ -7,8 +7,8 @@ class Continent {
     public $nom; 
 
    
-    public function __construct($db) {
-        $this->connect = $db;
+    public function __construct($datab) {
+        $this->connect = $datab;
     }
 
     
@@ -39,5 +39,19 @@ class Continent {
         $query = "DELETE FROM $this->table WHERE  id_continent = $this-> id_continent";
         return $this->connect->query($query); 
     }
+    public function nombrecontinent() {
+        $query = "
+            SELECT continent.id_continent, continent.nom, COUNT(pays.id_pays) AS nombre_pays
+            FROM continent
+            LEFT JOIN pays ON continent.id_continent = pays.id_continent
+            GROUP BY continent.id_continent, continent.nom
+        ";
+        $result = $this->connect->query($query);
+        if ($result) {
+            return $result->fetchAll(PDO::FETCH_ASSOC);
+        }
+        return [];
+    }
 }
+
 ?>
