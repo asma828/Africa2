@@ -24,14 +24,14 @@
             </div>
 
             <!-- Form -->
-            <form id="signupForm" action="./registerPros.php" method="POST" class="mt-8 space-y-6">
+            <form id="signupForm" action="process_signup.php" method="POST" class="mt-8 space-y-6">
                 <div class="space-y-4">
                     <!-- Name -->
                     <div>
                         <label class="flex items-center text-sm font-medium text-gray-700 mb-1">
                             Name
                         </label>
-                        <input type="text" id="name" name="name"  
+                        <input type="text" id="name" name="nom"  
                             class="appearance-none rounded-lg relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                             <small class="text-red-500 hidden" id="nameError">Invalid name (only letters allowed).</small>
                     </div>

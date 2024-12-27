@@ -20,17 +20,12 @@
                 <p class="mt-2 text-sm text-gray-600">
                     dosen't have an account? 
                     <a href="./signup.php" class="font-medium text-amber-900 hover:text-orange-500">Sign up here</a>
-                   <!--  catche the error i sent from loginPros.php and get the error message from the URL parameter-->
-                    <?php if (isset($_GET['error'])): ?>
-                        <div class="text-red-500 text-center mt-2">
-                         <?php echo htmlspecialchars($_GET['error']); ?>
-                    </div>
-                        <?php endif; ?>
+                   
                 </p>
             </div>
 
             <!-- Form -->
-            <form action="./loginPros.php" id="loginForm" method="POST" class="mt-8 space-y-6">
+            <form action="process_login.php" id="loginForm" method="POST" class="mt-8 space-y-6">
                 <div class="space-y-4">
                     <!-- Email -->
                     <div>

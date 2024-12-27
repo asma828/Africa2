@@ -1,8 +1,8 @@
 
-<?php
+<?php 
 
 
-include './conexion-data.php';
+  /*include './conexion-data.php';
 
 if (isset($_POST["submit"])) {
     
@@ -53,10 +53,20 @@ if (isset($_POST["sub"])) {
     } else {
         echo "Veuillez remplir tous les champs obligatoires.";
     }
+} */
+
+
+
+session_start();
+
+// Vérifier si l'utilisateur est connecté
+if(!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
 }
 
 
-?>
+?> 
 
 
 
