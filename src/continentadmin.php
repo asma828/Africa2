@@ -90,10 +90,10 @@ if ($continen) {
         <td class="px-4 py-2 border-b"><?php echo ($row["nom"]); ?></td>
         <td class="px-4 py-2 border-b"><?php echo $row["nombre_pays"] ?></td>
         <td class="flex justify-center px-4 py-2 border-b">
-          <a href="edit.php?id_continent=<?php echo ($row["id_continent"]); ?>" class="text-blue-500 hover:text-blue-700">
+          <a href="editcontinent.php?id_continent=<?php echo ($row["id_continent"]); ?>" class="text-blue-500 hover:text-blue-700">
             <img class="w-4 h-7" src="../img/edit.png" alt="Edit">
           </a>
-          <a href="delete.php?id_continent=<?php echo ($row["id_continent"]); ?>" class="text-red-500 hover:text-red-700">
+          <a href="deletcontinent.php?id_continent=<?php echo ($row["id_continent"]); ?>" class="text-red-500 hover:text-red-700">
             <img class="w-4 h-7" src="../img/delete.png" alt="Delete">
           </a>
         </td>
