@@ -1,7 +1,6 @@
 <?php
 class Pays {
     private $connect; 
-    private $table = "pays"; 
 
     public $id_pays; 
     public $nom_pays; 
@@ -16,14 +15,17 @@ class Pays {
 
     // Create a new country
     public function create() {
-        $query = "INSERT INTO $this->table (nom_pays, population, langues, id_continent) 
+        $query = "INSERT INTO pays (nom_pays, population, langues, id_continent) 
                   VALUES ('$this->nom_pays', '$this->population', '$this->langues', '$this->id_continent')";
+                  echo"hhhhhhhhhhhhhhhhhhhhhhhh";
         return $this->connect->query($query); 
     }
 
     // Read all countries
     public function read() {
-        $query = "SELECT * FROM $this->table";
+        $query = "SELECT pays.id_pays, pays.nom_pays, pays.population, pays.langues, continent.nom 
+        FROM pays
+        JOIN continent ON pays.id_continent = continent.id_continent";
         $result = $this->connect->query($query); 
         if ($result) {
             return $result->fetchAll(PDO::FETCH_ASSOC); 
@@ -32,7 +34,7 @@ class Pays {
 
     // Update country information
     public function update() {
-        $query = "UPDATE $this->table 
+        $query = "UPDATE pays 
                   SET nom_pays = '$this->nom_pays', population = '$this->population', 
                       langues = '$this->langues', id_continent = '$this->id_continent' 
                   WHERE id_pays = $this->id_pays";
@@ -41,7 +43,7 @@ class Pays {
 
     // Delete a country
     public function delete() {
-        $query = "DELETE FROM $this->table WHERE id_pays = $this->id_pays";
+        $query = "DELETE FROM pays WHERE id_pays = $this->id_pays";
         return $this->connect->query($query); 
     }
 }

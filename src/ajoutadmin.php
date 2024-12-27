@@ -1,19 +1,3 @@
-
-<?php 
-
-
-include './conexion-data.php';
-
-
-
-
-?> 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -90,7 +74,7 @@ include './conexion-data.php';
                 <h1 class="flex justify-center font-bold text-white text-4xl"> Pays</h1>
             
                 <label class="text-white" for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
+                <input type="text" id="nom" name="nom_pays" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
             
                 <label class="text-white" for="population">Population :</label>
                 <input type="number" id="population" name="population" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
@@ -100,14 +84,15 @@ include './conexion-data.php';
             
                 <label class="text-white" for="id_continent">Continent :</label>
                 <select id="id_continent" name="id_continent" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
-                      <option value="">Sélectionner un continent</option>
-        <?php 
-        
-        foreach ($continents as $continent) {
-            echo "<option value='" . $continent['id_continent'] . "'>" . $continent['nom'] . "</option>";
-        }
-        ?>
-    </select><br><br>
+                 <option value="">Sélectionner un continent</option>
+    <?php 
+    include './insertpays.php';
+    foreach ($continents as $continent) {
+        echo "<option value='" . $continent['id_continent'] . "'>" . $continent['nom'] . "</option>";
+    }
+    ?>
+</select>
+
             
                 <div class="flex justify-end mt-6">
                     <button type="submit" name="submit" class="text-white font-bold bg-amber-900 w-36 rounded-2xl py-2 hover:bg-amber-800 cursor-pointer">

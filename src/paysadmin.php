@@ -1,6 +1,11 @@
 <?php
+
+require '../classes/paysclass.php';
 include './conexion-data.php';
 
+$database = new Database();
+$pays = new Pays($database);
+$data = $pays->read(); 
 ?>
 
 
@@ -78,32 +83,29 @@ include './conexion-data.php';
                 </tr>
             </thead>
             <tbody>
-                    <?php
-                       $database = new Database();
-                       $sql = "SELECT * FROM pays";
+            <?php
+                if ($data) {
+                    foreach ($data as $row) {
+                ?>
+                <tr class="hover:bg-gray-100">
+                    <td class="px-4 py-2 border-b"><?php echo htmlspecialchars($row["nom_pays"], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td class="px-4 py-2 border-b"><?php echo htmlspecialchars($row["population"], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td class="px-4 py-2 border-b"><?php echo htmlspecialchars($row["langues"], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td class="px-4 py-2 border-b"><?php echo htmlspecialchars($row["nom"], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td class="flex justify-center px-4 py-2 border-b">
+                      <a href="edit.php?id_pays=<?php echo $row["id_pays"]; ?>" class="text-blue-500 hover:text-blue-700">
+                        <img class="w-4 h-7" src="../img/edit.png" alt="Edit">
+                      </a>
+                      <a href="delete.php?id_pays=<?php echo $row["id_pays"]; ?>" class="text-red-500 hover:text-red-700" onclick="return confirm('Are you sure you want to delete this country?');">
+                     <img class="w-4 h-7" src="../img/delete.png" alt="Delete">
+    </a>
+</td>
 
-            
-
-                       $result = $database->query($sql);
-                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                    ?>
-                    <tr class="hover:bg-gray-100">
-                        
-                        <td class="px-4 py-2 border-b"><?php echo $row["nom_pays"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["population"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["langues"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["id_continent"] ?></td>
-                        
-                        <td class="flex justify-center px-4 py-2 border-b ">
-                            <a href="edit.php?id_pays=<?php echo $row["id_pays"] ?>" class="text-blue-500 hover:text-blue-700">
-                              <img class="w-4 h-7" src="../img/edit.png"></img>
-                            </a>
-                            <a href="delete.php?id_pays=<?php echo $row["id_pays"] ?>" class="text-red-500 hover:text-red-700">
-                              <img class="w-4 h-7" src="../img/delete.png"></img>
-                            </a>
-                        </td>
-                    </tr>
+                </tr>
                 <?php
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>Aucun pays trouvé</td></tr>";
                 }
                 ?>
             </tbody>
