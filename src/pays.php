@@ -2,7 +2,7 @@
 
 // include './conexion-data.php';
 
-require '../classes/paysclass.php';
+
 include './conexion-data.php';
 require '../classes/paysclass.php';
 
