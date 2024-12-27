@@ -54,7 +54,7 @@ if($_SESSION['role'] == 1) {
               <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="continent.php">Continent</a>
             </li>
             <li class="mr-3">
-              <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="pays.php">Pays</a>
+              <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="paysuser.php">Pays</a>
             </li>
             <li class="mr-3">
               <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="ville.php">Villes</a>
