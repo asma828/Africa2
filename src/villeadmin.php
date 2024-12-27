@@ -1,7 +1,11 @@
 <?php
+
+require '../classes/ville.php';
 include './conexion-data.php';
 
-
+$database = new Database();
+$ville = new ville($database);
+$data = $ville->read(); 
 ?>
 
 <!DOCTYPE html>
@@ -80,29 +84,28 @@ include './conexion-data.php';
             </thead>
             <tbody>
             <?php
-                       $database = new Database();
-                       $sql = "SELECT * FROM ville";
-
-            
-
-                       $result = $database->query($sql);
-                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                       if ($data) {
+                        foreach ($data as $row) {
                     ?>
+                
                     <tr class="hover:bg-gray-100">
                         <td class="px-4 py-2 border-b"><?php echo $row["nom_ville"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["type"] ?></td>
                         <td class="px-4 py-2 border-b"><?php echo $row["description"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["id_pays"] ?></td>
+                        <td class="px-4 py-2 border-b"><?php echo $row["nom_pays"] ?></td>
                         <td class="flex justify-center px-4 py-2 border-b "> 
                             <a href="editvill.php?id_ville=<?php echo $row["id_ville"] ?>" class="text-blue-500 hover:text-blue-700">
                                 <img class="w-4 h-7" src="../img/edit.png"></img>   
                             </a>
-                            <a href="deletevill.php?id_ville=<?php echo $row["id_ville"] ?>" class="text-red-500 hover:text-red-700">
+                            <a href="deleteville.php?id_ville=<?php echo $row["id_ville"] ?>" class="text-red-500 hover:text-red-700">
                                 <img class="w-4 h-7" src="../img/delete.png"></img>
                             </a>
                         </td>
                     </tr>
-                <?php
+                    <?php
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>Aucun ville trouvé</td></tr>";
                 }
                 ?>
             </tbody>
