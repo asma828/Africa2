@@ -118,13 +118,7 @@ include './conexion-data.php';
                 <h3 class="text-white">Pays :</h3>
                 <select id="id_pays" name="id_pays" class="w-full p-2 mb-4 rounded-md bg-gray-200">
                 
-                    <?php
-                        // $query = "SELECT id_pays, nom FROM pays";
-                        // $result = mysqli_query($connect, $query);
-                        // while ($row = mysqli_fetch_assoc($result)) {
-                        //     echo "<option value='" . $row['id_pays'] . "'>" . $row['nom'] . "</option>";
-                        // }
-                    ?>
+                    
                 </select>
 
                 <h3 class="text-white">Type :</h3>

@@ -1,6 +1,11 @@
 <?php
-include './conexion-data.php';
 
+require '../classes/Continent.php';
+include './conexion-data.php';
+$database = new Database();
+$continent = new Continent($database);
+$continents = $continent->read();
+$continen = $continent->nombrecontinent();
 
 ?>
 
@@ -67,25 +72,24 @@ include './conexion-data.php';
                 </tr>
             </thead>
 
-            <tbody> <?php
-                       $database = new Database();
-                       $sql = "SELECT * FROM continent";
+            <tbody>
+                  <?php
 
-            
-
-                       $result = $database->query($sql);
-                        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    if ($continen) {
+                        foreach ($continen as $row) {
                     ?>
-                    <tr class="hover:bg-gray-100">
-                        <td class="px-4 py-2 border-b"><?php echo $row["nom"] ?></td>
-                        <td class="px-4 py-2 border-b"><?php echo $row["nombre_pays"] ?></td>
-                        
-                        
-                        
-                    </tr>
-                <?php
-                }
-                ?>
+                          <tr class="hover:bg-gray-100">
+                            <td class="px-4 py-2 border-b"><?php echo ($row["nom"]); ?></td>
+                            <td class="px-4 py-2 border-b"><?php echo $row["nombre_pays"] ?></td>
+                            
+                          </tr>
+                    <?php
+                        }
+                    } else {
+                        echo "<tr><td colspan='2'>Aucun continent trouvé</td></tr>";
+                    }
+                    ?>
+
             </tbody>
         </table>
     </div>
