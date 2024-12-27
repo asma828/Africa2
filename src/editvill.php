@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ville->id_ville = $_POST['id_ville'];
     $ville->nom_ville = $_POST['nom_ville'];
     $ville->type = $_POST['type'];
-    $ville->descriptions = $_POST['description'];
+    $ville->description = $_POST['description'];
     $ville->id_pays = $_POST['id_pays'];
 
     if ($ville->update()) {
