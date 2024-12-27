@@ -12,61 +12,59 @@ $data = $pays->read();
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="input.css">
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="">
-</head>
-<body>
-  <div class="bg-amber-900 bg-contain  w-full   flex flex-wrap items-center justify-between mt-0 py-2 ">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="input.css">
+      <link rel="stylesheet" href="output.css">
+      <link rel="stylesheet" href="">
+  </head>
+  <body>
+    
+    <div class="bg-amber-900 bg-contain  w-full   flex flex-wrap items-center justify-between mt-0 py-2 ">
 
-    <div class="pl-4 flex items-center ">
+      <div class="pl-4 flex items-center ">
      
         <img src="../img/icon-africa-.png"> 
         <span class="text-white font-bold text-lg">Africa Géo-Junior</span>
      
-      
-    </div>
+      </div>
 
-    <div class="block lg:hidden pr-4">
-      <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
-        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <div class="block lg:hidden pr-4">
+        <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
+          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
           <title>Menu</title>
           <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-        </svg>
-      </button>
-    </div>
+          </svg>
+        </button>
+      </div>
 
-    <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20 bg-amber-900 " id="nav-content">
-                    <ul class="list-reset lg:flex justify-end flex-1 items-center">
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="ajoutadmin.php">ajout</a>
-                        </li>
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="continentadmin.php">continent</a>
-                        </li>
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="paysadmin.php">pays</a>
-                        </li>
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="villeadmin.php">ville</a>
-                        </li>
-                        <li class="mr-3">
-                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="login.php">log-out</a>
-                        </li>
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20 bg-amber-900  " id="nav-content">
+          <ul class="list-reset lg:flex justify-end flex-1 items-center">
+            <li class="mr-3">
+              <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="index.php">Home</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="continent.php">Continent</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="pays.php">Pays</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="ville.php">Villes</a>
+            </li>
+            <li class="mr-3">
+              <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="logout.php">log-out</a>
+            </li>
                        
-                        <li class="mr-3 w-12" >
-                            <a class="" href="login.php"> <img src="../img/logout.png"></a>
+            <li class="mr-3 w-12" >
+              <a class="" href="logout.php"> <img src="../img/logout.png"></a>
                            
-                        </li>
-
-                    </ul>
-                </div>
-  </div>
-  </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
   <div class="container mx-auto px-4 py-6 border-amber-900">
    <div class="overflow-x-auto">
