@@ -1,7 +1,17 @@
 <?php
-include './conexion-data.php';
+session_start();
 
+// Vérifier si l'utilisateur est connecté
+if(!isset($_SESSION['id_user'])) {
+    header("Location: login.php");
+    exit();
+}
 
+// Vérifier si c'est un utilisateur normal
+if($_SESSION['role'] == 1) {
+    header("Location: dashboard.php");
+    exit();
+}
 ?>
 
 
@@ -49,7 +59,14 @@ include './conexion-data.php';
             <li class="mr-3">
               <a class="inline-block text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="ville.php">Villes</a>
             </li>
-
+            <li class="mr-3">
+              <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="logout.php">log-out</a>
+            </li>
+                       
+            <li class="mr-3 w-12" >
+              <a class="" href="logout.php"> <img src="../img/logout.png"></a>
+                           
+            </li>
           </ul>
         </div>
       </div>
