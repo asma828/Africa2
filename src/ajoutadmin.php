@@ -2,7 +2,7 @@
 <?php 
 
 
-  /*include './conexion-data.php';
+include './conexion-data.php';
 
 if (isset($_POST["submit"])) {
     
@@ -53,16 +53,6 @@ if (isset($_POST["sub"])) {
     } else {
         echo "Veuillez remplir tous les champs obligatoires.";
     }
-} */
-
-
-
-session_start();
-
-// Vérifier si l'utilisateur est connecté
-if(!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
 }
 
 
@@ -95,16 +85,26 @@ if(!isset($_SESSION['user_id'])) {
                 </div>
 
                 <div class="block lg:hidden pr-4">
-                    <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
-                        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <title>Menu</title>
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                        </svg>
-                    </button>
+                        <li class="mr-3 w-12" >
+                            <a  href="login.php"> <img src="../img/logout.png"></a>
+                           
+                        </li>
                 </div>
 
                 <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 lg:bg-transparent text-black p-4 lg:p-0 z-20 bg-amber-900 " id="nav-content">
                     <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="ajoutadmin.php">ajout</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="continentadmin.php">continent</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="paysadmin.php">pays</a>
+                        </li>
+                        <li class="mr-3">
+                            <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="villeadmin.php">ville</a>
+                        </li>
                         <li class="mr-3">
                             <a class="inline-block py-2 px-4 text-white font-bold no-underline" href="logout.php">log-out</a>
                         </li>
