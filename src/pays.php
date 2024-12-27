@@ -4,6 +4,8 @@
 
 require '../classes/paysclass.php';
 include './conexion-data.php';
+require '../classes/paysclass.php';
+
 
 $database = new Database();
 $pays = new Pays($database);

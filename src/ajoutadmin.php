@@ -1,3 +1,7 @@
+<?php
+ include './conexion-data.php';
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,79 +35,57 @@
 
     <main class="flex flex-col sm:flex-row">
         <!-- Formulaire Continent -->
-        <form action="ajoutcontinent.php" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] flex flex-col justify-center sm:m-5 m-3" style="background-image: url('../img/bg.jpg');">
-            <h1 class="text-center font-bold text-white text-4xl mb-4">Continent</h1>
-            <label for="nom" class="text-white">Nom :</label>
-            <input type="text" id="nom" name="nom" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
-            <div class="flex justify-end mt-6">
+        <form action="formacontinent.php" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] flex flex-col justify-center sm:m-5 m-3">
+            <div class="flex justify-end mt-6 h-36">
+            <a href="formacontinent.php" class="w-full">
                 <button type="submit" name="sub" id="sub" class="bg-amber-900 text-white font-bold w-36 rounded-2xl py-2 hover:bg-amber-800">
-                    Ajouter
+                    Ajouter continent
                 </button>
+</a>
             </div>
         </form>
         
         <!-- Formulaire Pays -->
-        <form action="insertpays.php" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] sm:m-5 m-3" style="background-image: url('../img/bg.jpg');">
-            <h1 class="text-center font-bold text-white text-4xl mb-4">Pays</h1>
-            <label for="nom_pays" class="text-white">Nom :</label>
-            <input type="text" id="nom_pays" name="nom_pays" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
-            <label for="population" class="text-white">Population :</label>
-            <input type="number" id="population" name="population" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
-            <label for="langues" class="text-white">Langues :</label>
-            <input type="text" id="langues" name="langues" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
-            <label for="id_continent" class="text-white">Continent :</label>
-            <select id="id_continent" name="id_continent" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
-                <option value="">Sélectionner un continent</option>
-                <?php 
-                include './insertpays.php';
-                foreach ($continents as $continent) {
-                    echo "<option value='" . $continent['id_continent'] . "'>" . $continent['nom'] . "</option>";
-                }
-                ?>
+        <form action="formapays.php" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] sm:m-5 m-3" style="">
             </select>
-            <div class="flex justify-end mt-6">
+            <div class="flex justify-end mt-6 h-36">
+            <a href="formapays.php" class="w-full">
                 <button type="submit" name="submit" class="bg-amber-900 text-white font-bold w-36 rounded-2xl py-2 hover:bg-amber-800">
-                    Ajouter
+                    Ajouter pays
                 </button>
+</a>
             </div>
         </form>
         
         <!-- Formulaire Ville -->
-        <form action="insertville.php" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] sm:m-5 m-3" style="background-image: url('../img/bg.jpg');">
-            <h1 class="text-center font-bold text-white text-4xl mb-4">Ville</h1>
-            <label for="nom_ville" class="text-white">Nom :</label>
-            <input type="text" id="nom_ville" name="nom" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
-            <label for="id_pays" class="text-white">Pays :</label>
-            <select id="id_pays" name="id_pays" class="w-full p-2 mb-4 rounded-md bg-gray-200">
-                <option value="">Sélectionner un pays</option>
-                <?php 
-                include './insertville.php';
-                foreach ($pay as $pays) {
-                    echo "<option value='" . $pays['id_pays'] . "'>" . $pays['nom_pays'] . "</option>";
-                }
-                ?>
-            </select>
-            <label for="type" class="text-white">Type :</label>
-            <select id="type" name="type" class="w-full p-2 mb-4 rounded-md bg-gray-200">
-                <option value="capitale">Capitale</option>
-                <option value="autre">Autre</option>
-            </select>
-            <label for="description" class="text-white">Description :</label>
-            <input type="text" id="description" name="description" class="w-full p-2 mb-4 rounded-md bg-gray-200" required>
-            <div class="flex justify-end mt-6">
+        
+        <form action="formville.php" method="POST" class="bg-cover p-4 rounded-2xl sm:w-[700px] w-[300px] sm:m-5 m-3" style="">
+            
+            
+           <div class="flex justify-end mt-6 h-36">
+           <a href="formville.php" class="w-full">
                 <button type="submit" name="subb" class="bg-amber-900 text-white font-bold w-36 rounded-2xl py-2 hover:bg-amber-800">
-                    Ajouter
+                    Ajouter ville
                 </button>
+</a>
             </div>
         </form>
     </main>
+       
+
+            
+            
+            
+
+            
+            
+
+        
+            
+
+          
     
-    <footer class="bg-amber-900 p-6">
-        <div class="text-center text-white">
-            <p>© 2020 Africa Géo-Junior. All rights reserved.</p>
-            <p>Distributed by <a href="https://themewagon.com/" class="hover:text-orange-500">Themewagon</a></p>
-        </div>
-    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
