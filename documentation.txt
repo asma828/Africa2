@@ -1,0 +1,59 @@
+Introduction à la Programmation Orientée Objet en PHP :
+
+La programmation orientée objet (POO) est une approche de programmation qui repose sur la création et la manipulation d'objets. En PHP, cela implique la définition de classes qui servent de plans pour créer des objets. Chaque classe peut contenir des propriétés (variables) et des méthodes (fonctions) qui définissent le comportement de l'objet. Voici un exemple simple :
+class Voiture {
+    public $marque;
+    public $couleur;
+
+    public function __construct($marque, $couleur) {
+        $this->marque = $marque;
+        $this->couleur = $couleur;
+    }
+
+    public function demarrer() {
+        return "La voiture ".$this->marque." de couleur ".$this->couleur." démarre.";
+    }
+}
+
+$voiture = new Voiture("Toyota", "Rouge");
+echo $voiture->demarrer();
+
+Encapsulation et Modificateurs d'Accès :
+
+L'encapsulation est un principe fondamental de la POO qui consiste à restreindre l'accès direct aux données d'un objet pour protéger son intégrité. En PHP, cela se fait grâce aux modificateurs d'accès :
+
+public : Accès sans restriction, utilisable depuis n'importe où.
+
+private : Accès limité à la classe elle-même.
+
+protected : Accès restreint à la classe elle-même et aux classes dérivées.
+
+Héritage et Polymorphisme :
+
+L'héritage permet à une classe (classe enfant) de réutiliser les propriétés et méthodes d'une autre classe (classe parente). Le polymorphisme permet de redéfinir les méthodes d'une classe parente dans une classe enfant.
+
+Exemple d'héritage :
+
+class Animal {
+    public function faireDuBruit() {
+        return "Un bruit générique.";
+    }
+}
+
+class Chien extends Animal {
+    public function faireDuBruit() {
+        return "Aboyer";
+    }
+}
+
+class Chat extends Animal {
+    public function faireDuBruit() {
+        return "Miauler";
+    }
+}
+
+$chien = new Chien();
+echo $chien->faireDuBruit();
+
+$chat = new Chat();
+echo $chat->faireDuBruit();
