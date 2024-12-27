@@ -46,5 +46,15 @@ class Pays {
         $query = "DELETE FROM pays WHERE id_pays = $this->id_pays";
         return $this->connect->query($query); 
     }
+
+    // Fetch a single country's data by ID
+public function readById() {
+    $query = "SELECT * FROM pays WHERE id_pays = :id_pays";
+    $stmt = $this->connect->prepare($query);
+    $stmt->bindParam(':id_pays', $this->id_pays);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }
 ?>
