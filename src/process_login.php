@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($resultat == "Connexion réussie") {
         // Redirection basée sur le rôle stocké dans la session
         if($_SESSION['role'] == 1) { 
-            header("Location: dashbordadmin.php");
+            header("Location: ajoutadmin.php");
         } else { 
             header("Location: index.php");
         }
